@@ -1,29 +1,29 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Country } from './country';
-import { ApiService } from './api.service';
+import { Country } from '../../models/country';
+import { ApiService } from '../../services/api/api.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CountryService {
 
-  countryUrl = 'https://macmickey.azurewebsites.net/Country'
+  endPoint = 'Country'
 
 
   constructor(private apiService: ApiService) { }
 
   getCountry(): Observable<Country[]> {
-    return this.apiService.get<Country[]>(this.countryUrl);
+    return this.apiService.get<Country[]>(this.endPoint);
   }
 
   getCountryByCode(countryCode: number): Observable<Country> {
-    const url = `${this.countryUrl}/${countryCode}`;
+    const url = `${this.endPoint}/${countryCode}`;
     return this.apiService.get<Country>(url);
   }
 
   getCountryByName(countryName: string): Observable<Country> {
-    const url = `${this.countryUrl}/${countryName}`;
+    const url = `${this.endPoint}/${countryName}`;
     return this.apiService.get<Country>(url);
   }
 }

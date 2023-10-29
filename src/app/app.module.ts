@@ -4,18 +4,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductComponent } from './product/product.component';
-import { ClientComponent } from './client/client.component';
-import { Routes } from '@angular/router';
-import { ListeProduitsComponent } from './liste-produits/liste-produits.component';
-import { DetailsProduitsComponent } from './details-produits/details-produits.component';
-import { CommandeProduitsComponent } from './commande-produits/commande-produits.component';
-import { CommandesClientComponent } from './commandes-client/commandes-client.component';
-import { ListeCommandesComponent } from './liste-commandes/liste-commandes.component';
-import { AdressesLivraisonComponent } from './adresses-livraison/adresses-livraison.component';
-import { ListeAdressesComponent } from './liste-adresses/liste-adresses.component';
-import { FormulaireAjoutComponent } from './formulaire-ajout/formulaire-ajout.component';
+import { ClientComponent } from './components/client/client.component';
+import { ListeProduitsComponent } from './components/liste-produits/liste-produits.component';
+import { DetailsProduitsComponent } from './components/details-produits/details-produits.component';
+import { CommandeProduitsComponent } from './components/commande-produits/commande-produits.component';
+import { CommandesClientComponent } from './components/commandes-client/commandes-client.component';
+import { ListeCommandesComponent } from './components/liste-commandes/liste-commandes.component';
+import { AdressesLivraisonComponent } from './components/adresses-livraison/adresses-livraison.component';
+import { ListeAdressesComponent } from './components/liste-adresses/liste-adresses.component';
+import { FormulaireAjoutComponent } from './components/formulaire-ajout/formulaire-ajout.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ProductService } from './product.service';
+import { ProductService } from './services/product/product.service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -29,12 +29,13 @@ import { ProductService } from './product.service';
     ListeCommandesComponent,
     AdressesLivraisonComponent,
     ListeAdressesComponent,
-    FormulaireAjoutComponent
+    FormulaireAjoutComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]

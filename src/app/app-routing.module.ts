@@ -1,15 +1,16 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, withComponentInputBinding } from '@angular/router';
 import { ProductComponent } from './product/product.component';
-import { ClientComponent } from './client/client.component';
-import { ListeProduitsComponent } from './liste-produits/liste-produits.component';
-import { DetailsProduitsComponent } from './details-produits/details-produits.component';
-import { CommandeProduitsComponent } from './commande-produits/commande-produits.component';
-import { ListeCommandesComponent } from './liste-commandes/liste-commandes.component';
-import { CommandesClientComponent } from './commandes-client/commandes-client.component';
-import { AdressesLivraisonComponent } from './adresses-livraison/adresses-livraison.component';
-import { ListeAdressesComponent } from './liste-adresses/liste-adresses.component';
-import { FormulaireAjoutComponent } from './formulaire-ajout/formulaire-ajout.component';
+import { ClientComponent } from './components/client/client.component';
+import { ListeProduitsComponent } from './components/liste-produits/liste-produits.component';
+import { DetailsProduitsComponent } from './components/details-produits/details-produits.component';
+import { CommandeProduitsComponent } from './components/commande-produits/commande-produits.component';
+import { ListeCommandesComponent } from './components/liste-commandes/liste-commandes.component';
+import { CommandesClientComponent } from './components/commandes-client/commandes-client.component';
+import { AdressesLivraisonComponent } from './components/adresses-livraison/adresses-livraison.component';
+import { ListeAdressesComponent } from './components/liste-adresses/liste-adresses.component';
+import { FormulaireAjoutComponent } from './components/formulaire-ajout/formulaire-ajout.component';
+
 
 const routes: Routes = [
   {
@@ -19,13 +20,17 @@ const routes: Routes = [
       {
         path: 'liste-produits',
          component: ListeProduitsComponent,
-        children: [
-          { path: 'details-produits', component: DetailsProduitsComponent}
-        ]
         },
         { path: 'commande-produits', component: CommandeProduitsComponent}
     ]
     },
+    //chemin distint afin d'afficher le détail d'un produit en fonction de son id
+    { path: 'produit/liste-produits/details-produits/:id',
+        component: DetailsProduitsComponent},
+
+    //chemin distinct qui permet d'afficher la page de commande d'un produit
+    { path: 'produit/liste-produits/commande-produits/:id',
+        component: CommandeProduitsComponent},
   {
     path: 'client',
      component: ClientComponent,
@@ -52,6 +57,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule { }

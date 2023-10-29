@@ -1,29 +1,29 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError } from 'rxjs';
-import { Order } from './order';
-import { ApiService } from './api.service';
+import { Order } from '../../models/order';
+import { ApiService } from '../../services/api/api.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrderService {
 
-  orderUrl = 'https://macmickey.azurewebsites.net/Order'
+  endPoint = 'Order'
 
   constructor(private apiService: ApiService) { }
 
   getOrder(): Observable<Order[]>{
-    return this.apiService.get<Order[]>(this.orderUrl)
+    return this.apiService.get<Order[]>(this.endPoint)
   }
 
   getOrderActive() : Observable<Order[]>{
-    const url = `${this.orderUrl}/active`
+    const url = `${this.endPoint}/active`
     return this.apiService.get<Order[]>(url)
   }
 
   getOrderById(orderId: number): Observable<Order>{
-    const url = `${this.orderUrl}/${orderId}`
+    const url = `${this.endPoint}/${orderId}`
     return this.apiService.get<Order>(url)
   }
 

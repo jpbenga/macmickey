@@ -10,6 +10,8 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
+  url: string = 'https://macmickey.azurewebsites.net/'
+
   handleError(error: HttpErrorResponse): Observable<never> {
     if (error.status === 0) {
       // A client-side or network error occurred. Handle it accordingly.
@@ -24,8 +26,8 @@ export class ApiService {
     return throwError(() => new Error('Something bad happened; please try again later.'));
   }
 
-  get<T>(url: string): Observable<T> {
-    return this.http.get<T>(url).pipe(
+  get<T>(endPoint: string): Observable<T> {
+    return this.http.get<T>(`${this.url}${endPoint}`).pipe(
       catchError(this.handleError)
     )
   }

@@ -1,0 +1,25 @@
+<h3>Client</h3>
+<nav>
+  <ul>
+    <li><a routerLink="/client/commandes-client">Commandes</a></li>
+    <li><a routerLink="/client/adresses-livraison">Adresses de livraison</a></li>
+  </ul>
+</nav>
+<div class="container" *ngIf="client$ | async as client else sinon">
+  <ul>
+    <li>Client ID: {{ client.clientID}}</li>
+    <li>email: {{ client.email}}</li>
+    <ul *ngFor="let address of client.addresses; let i = index">
+      <p>Adresse n° {{ i + 1 }}</p>
+      <li>{{ address.adresseID }}</li>
+      <li>{{ address.streetLine1 }}</li>
+      <li>{{ address.streetLine2 }}</li>
+      <li>{{ address.zipCode }}</li>
+      <li>{{ address.city }}</li>
+      <li>{{ address.countryID }}</li>
+    </ul>
+  </ul>
+</div>
+<ng-template #sinon> Pas de client... </ng-template>
+
+<router-outlet></router-outlet>

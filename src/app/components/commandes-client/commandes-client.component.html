@@ -1,0 +1,28 @@
+<h3>Liste</h3>
+
+<table class="table table-hover table-striped" *ngIf="orders$ | async as orders else sinon">
+  <caption class="caption-top">Liste des commandes</caption>
+  <thead>
+    <tr>
+      <th scope="col">orderId</th>
+      <th scope="col">orderDetails</th>
+      <th scope="col">creationDate</th>
+      <th scope="col">lastUpdate</th>
+      <th scope="col">orderState</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let order of orders">
+    <tr>
+      <th scope="row">{{ order.orderID }}</th>
+      <td>{{ order.orderDetails }}</td>
+      <td>{{ order.creationDateTime }}</td>
+      <td>{{ order.lastModifiedDateTime }}</td>
+      <td>{{ order.orderState }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<ng-template #sinon> Pas de commande... </ng-template>
+
+
+<router-outlet></router-outlet>
