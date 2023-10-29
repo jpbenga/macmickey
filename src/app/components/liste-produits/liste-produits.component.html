@@ -7,11 +7,17 @@
         <h5 class="card-title">{{ product.name }}</h5>
         <p class="card-text">{{ product.productID }}</p>
       </div>
-      <a [routerLink]="['/produit/liste-produits/details-produits', product.productID]" class="btn btn-primary">Voir
-        détail
-        -></a>
-      <a [routerLink]="['/produit/liste-produits/details-produits', product.productID]"
-        class="btn btn-success">Commander ce produit +</a>
+      <div>
+        <a [routerLink]="['/produit/liste-produits/details-produits', product.productID]" class="btn btn-primary">Voir
+          détail
+          -></a>
+      </div>
+      <div>
+        <a [routerLink]="['/produit/liste-produits/commande-produits', product.productID]"
+          class="btn btn-success">Commander
+          ce
+          produit +</a>
+      </div>
     </div>
   </div>
 </div>

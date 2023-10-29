@@ -16,9 +16,6 @@ export class ClientComponent implements OnInit{
 
   ngOnInit(): void {
     this.client$ = this.clientService.getClient()
-    this.client$.subscribe((clientData) => {
-      console.log(clientData); // Affiche les données du client dans la console
-    });
   }
 
 }

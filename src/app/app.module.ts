@@ -16,6 +16,9 @@ import { FormulaireAjoutComponent } from './components/formulaire-ajout/formulai
 import { HttpClientModule } from '@angular/common/http';
 import { ProductService } from './services/product/product.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CounterComponent } from './components/counter/counter.component';
+import { FormsModule } from '@angular/forms';
+import { NavComponent } from './layout/navigation/nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -30,12 +33,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AdressesLivraisonComponent,
     ListeAdressesComponent,
     FormulaireAjoutComponent,
+    CounterComponent,
+    NavComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    FormsModule
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]

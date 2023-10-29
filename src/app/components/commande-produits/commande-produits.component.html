@@ -1,1 +1,13 @@
-<h3>Commande de produits</h3>
+<div>
+  <div>
+    <ngb-alert *ngIf="orderValidation" [dismissible]="true" type="success">Quantité ajouté avec succès</ngb-alert>
+  </div>
+  <h3>Commande du produit: <span class="text-primary" *ngIf="product$ | async as product">{{ product.name }}</span></h3>
+
+  <p>Veuillez choisir la quantité souhaité: </p>
+  <div class="form">
+    <label for="quantity">Quantité :</label>
+    <app-counter [quantity]="orderQuantity" value="1"></app-counter>
+    <button (click)="orderValidationMessage()" class="btn btn-primary">Valider</button>
+  </div>
+</div>
