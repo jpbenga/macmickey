@@ -6,19 +6,70 @@
     <li><a routerLink="/client/adresses-livraison">Adresses de livraison</a></li>
   </ul>
 </nav>
-<div class="container" *ngIf="client$ | async as client else sinon">
-  <ul>
-    <li>Client ID: {{ client.clientID}}</li>
-    <li>email: {{ client.email}}</li>
+<div class="container col-6" *ngIf="client$ | async as client else sinon">
+  <h3>Information du client</h3>
+  <br>
+  <ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between align-items-start">
+      <div class="ms-2 me-auto">
+        <div class="fw-bold">Client ID:</div>
+        {{ client.clientID}}
+      </div>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-start">
+      <div class="ms-2 me-auto">
+        <div class="fw-bold">Email:</div>
+        {{ client.email}}
+      </div>
+    </li>
+    <br>
     <ul *ngFor="let address of client.addresses; let i = index">
-      <p>Adresse n° {{ i + 1 }}</p>
-      <li>{{ address.adresseID }}</li>
-      <li>{{ address.streetLine1 }}</li>
-      <li>{{ address.streetLine2 }}</li>
-      <li>{{ address.zipCode }}</li>
-      <li>{{ address.city }}</li>
-      <li>{{ address.countryID }}</li>
+      <li class="list-group-item list-group-item-info d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">Adresse n°:</div>
+          {{ i + 1}}
+        </div>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">Adresse ID:</div>
+          {{ address.addressID}}
+        </div>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">Rue 1:</div>
+          {{ address.streetLine1}}
+        </div>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">Rue 2:</div>
+          {{ address.streetLine2}}
+        </div>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">Code Postal:</div>
+          {{ address.zipCode}}
+        </div>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">Ville:</div>
+          {{ address.city}}
+        </div>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">Pays ID:</div>
+          {{ address.countryID}}
+        </div>
+      </li>
+      <br>
     </ul>
   </ul>
 </div>
 <ng-template #sinon> Pas de client... </ng-template>
+
+<router-outlet></router-outlet>

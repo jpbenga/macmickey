@@ -19,6 +19,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CounterComponent } from './components/counter/counter.component';
 import { FormsModule } from '@angular/forms';
 import { NavComponent } from './layout/navigation/nav/nav.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
+
 
 @NgModule({
   declarations: [
@@ -41,7 +44,8 @@ import { NavComponent } from './layout/navigation/nav/nav.component';
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]
