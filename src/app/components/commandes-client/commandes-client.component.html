@@ -1,5 +1,6 @@
-<h3>Liste</h3>
-<div class="container col-6">
+<div class="container col-6 mt-5">
+  <h3>Liste des commandes: </h3>
+  <br>
   <table class="table table-hover" *ngIf="orders$ | async as orders else sinon">
     <caption class="caption-top">Liste des commandes</caption>
     <thead class="table-dark">

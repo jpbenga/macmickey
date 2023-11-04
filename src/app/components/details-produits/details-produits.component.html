@@ -1,10 +1,10 @@
-<div *ngIf="product$ | async as product; else loading">
+<div class="col-md-6 bg-light mx-auto mt-5 p-2" *ngIf="product$ | async as product; else loading">
   <h2>Détails du produit</h2>
-  <p>Nom du produit : {{ product.name }}</p>
+  <p>Nom du produit : <span class="text-primary">{{ product.name }}</span></p>
   <p>Type de produit : {{ product.productType }}</p>
-  <p>Prix unitaire : {{ product.unitPrice }}</p>
+  <p>Prix unitaire : {{ product.unitPrice }} €</p>
   <p>Description : {{ product.description }}</p>
-  <p>Stock disponible : {{ product.stockpiled }}</p>
+  <p>Stock disponible : <span class="text-success">{{ product.stockpiled }}</span></p>
 </div>
 
 <ng-template #loading>

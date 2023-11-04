@@ -15,11 +15,13 @@ export class CounterComponent {
 
   incrementQuantity(){
     this.quantity ++
+    this.quantityChange.emit(this.quantity)
   }
 
   decrementQuantity(){
     if(this.quantity > 1){
       this.quantity --
+      this.quantityChange.emit(this.quantity)
     }
   }
 

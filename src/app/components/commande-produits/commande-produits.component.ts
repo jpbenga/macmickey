@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, switchMap } from 'rxjs';
-import { Product } from 'src/app/models/product';
+import { Product, ProductCart } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/product/product.service';
 
 @Component({
@@ -11,8 +11,9 @@ import { ProductService } from 'src/app/services/product/product.service';
 })
 export class CommandeProduitsComponent implements OnInit{
 
-  orderQuantity!: number
+  orderQuantity: number = 1
   product$!: Observable<Product>
+  productCart: Array<ProductCart> = []
   orderValidation = false
 
   constructor(
@@ -29,7 +30,18 @@ export class CommandeProduitsComponent implements OnInit{
     )
   }
 
-  orderValidationMessage(){
-    this.orderValidation = true
+  addToCart() {
+  if (this.orderQuantity > 0) {
+    this.product$.subscribe((product) => {
+      const cartItem: ProductCart = {
+        product: product.name,
+        quantity: this.orderQuantity
+      }
+      this.productCart.push(cartItem)
+      console.table(this.productCart)
+    })
+
+    this.orderQuantity = 0;
   }
+}
 }

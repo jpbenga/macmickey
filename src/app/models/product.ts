@@ -7,6 +7,11 @@ export interface Product{
   stockpiled: number
 }
 
+export interface ProductCart {
+  product: string;
+  quantity: number;
+}
+
 export enum ProductType{
   burger = 'burger',
   side = 'side',

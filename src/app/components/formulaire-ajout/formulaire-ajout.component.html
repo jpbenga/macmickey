@@ -1,32 +1,35 @@
-<form [formGroup]="addressForm" (ngSubmit)="onSubmit()">
+<div class="col-6 mt-5">
+  <h3>Formulaire d'adresse</h3>
+  <form class="mt-5" [formGroup]="addressForm" (ngSubmit)="onSubmit()">
 
-  <label for="addressID" class="form-label">AddressID: </label>
-  <input id="addressID" class="form-control" formControlName="addressID" type="text">
+    <label for="addressID" class="form-label">AddressID: </label>
+    <input id="addressID" class="form-control" formControlName="addressID" type="text">
 
-  <label for="streetLine1" class="form-label">StreetLine1: </label>
-  <input id="streetLine1" class="form-control" formControlName="streetLine1" type="text">
+    <label for="streetLine1" class="form-label">StreetLine1: </label>
+    <input id="streetLine1" class="form-control" formControlName="streetLine1" type="text">
 
-  <label for="streetLine2" class="form-label">StreetLine2: </label>
-  <input id="streetLine2" class="form-control" formControlName="streetLine2" type="text">
+    <label for="streetLine2" class="form-label">StreetLine2: </label>
+    <input id="streetLine2" class="form-control" formControlName="streetLine2" type="text">
 
-  <label for="zipCode" class="form-label">ZipCode: </label>
-  <input id="zipCode" class="form-control" formControlName="zipCode" type="text">
+    <label for="zipCode" class="form-label">ZipCode: </label>
+    <input id="zipCode" class="form-control" formControlName="zipCode" type="text">
 
-  <label for="city" class="form-label">City: </label>
-  <input id="city" class="form-control" formControlName="city" type="text">
+    <label for="city" class="form-label">City: </label>
+    <input id="city" class="form-control" formControlName="city" type="text">
 
-  <label for="phone" class="form-label">Phone: </label>
-  <input id="phone" class="form-control" formControlName="phone" type="text">
+    <label for="phone" class="form-label">Phone: </label>
+    <input id="phone" class="form-control" formControlName="phone" type="text">
 
-  <label for="countryID" class="form-label">CountryID: </label>
-  <input id="countryID" class="form-control" formControlName="countryID" type="text">
+    <label for="countryID" class="form-label">CountryID: </label>
+    <input id="countryID" class="form-control" formControlName="countryID" type="text">
 
-  <label for="clientID" class="form-label">ClientID: </label>
-  <input id="clientID" class="form-control" formControlName="clientID" type="text">
-  <br>
-  <div>
-    <p>Completer le formulaire pour rendre le bouton cliquable</p>
-    <button class="btn btn-primary" type="submit" [disabled]="!addressForm.valid">Submit</button>
-  </div>
+    <label for="clientID" class="form-label">ClientID: </label>
+    <input id="clientID" class="form-control" formControlName="clientID" type="text">
+    <br>
+    <div>
+      <p>Completer le formulaire pour rendre le bouton cliquable</p>
+      <button class="btn btn-primary" type="submit" [disabled]="!addressForm.valid">Submit</button>
+    </div>
 
-</form>
+  </form>
+</div>

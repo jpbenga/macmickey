@@ -1,24 +1,23 @@
-<h3>Liste des produits</h3>
+<div class="mt-5">
+  <h3>Liste des produits</h3>
+  <br>
+  <div class="row row-cols-1 row-cols-md-3 g-4" *ngIf="products$ | async as list; else sinon">
+    <div class="col" *ngFor="let product of list">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Nom: {{ product.name }}</h5>
+          <p class="card-text">ID: {{ product.productID }}</p>
+        </div>
 
-<div class="row row-cols-1 row-cols-md-3 g-4" *ngIf="products$ | async as list; else sinon">
-  <div class="col" *ngFor="let product of list">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">{{ product.name }}</h5>
-        <p class="card-text">{{ product.productID }}</p>
-      </div>
-      <div>
         <a [routerLink]="['/produit/liste-produits/details-produits', product.productID]" class="btn btn-primary">Voir
           détail
           -></a>
-      </div>
-      <div>
         <a [routerLink]="['/produit/liste-produits/commande-produits', product.productID]"
-          class="btn btn-success">Commander
+          class="btn btn-success mt-1">Commander
           ce
           produit +</a>
       </div>
     </div>
   </div>
+  <ng-template #sinon> Pas de produits... </ng-template>
 </div>
-<ng-template #sinon> Pas de produits... </ng-template>

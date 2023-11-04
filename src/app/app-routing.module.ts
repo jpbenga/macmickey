@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, withComponentInputBinding } from '@angular/router';
-import { ProductComponent } from './product/product.component';
+import { ProductComponent } from './components/product/product.component';
 import { ClientComponent } from './components/client/client.component';
 import { ListeProduitsComponent } from './components/liste-produits/liste-produits.component';
 import { DetailsProduitsComponent } from './components/details-produits/details-produits.component';
@@ -13,46 +13,27 @@ import { FormulaireAjoutComponent } from './components/formulaire-ajout/formulai
 
 
 const routes: Routes = [
-  {
-    path: 'produit',
-     component: ProductComponent,
+  { path: 'produit', component: ProductComponent,
     children: [
-      {
-        path: 'liste-produits',
-         component: ListeProduitsComponent,
-        },
-        { path: 'commande-produits', component: CommandeProduitsComponent}
+      { path: 'liste-produits', component: ListeProduitsComponent},
+      { path: 'commande-produits', component: CommandeProduitsComponent}
     ]
-    },
+  },
     //chemin distint afin d'afficher le détail d'un produit en fonction de son id
-    { path: 'produit/liste-produits/details-produits/:id',
-        component: DetailsProduitsComponent},
+  { path: 'produit/liste-produits/details-produits/:id', component: DetailsProduitsComponent},
 
     //chemin distinct qui permet d'afficher la page de commande d'un produit
-    { path: 'produit/liste-produits/commande-produits/:id',
-        component: CommandeProduitsComponent},
-  {
-    path: 'client',
-     component: ClientComponent,
-    children: [
-      {
-        path: 'commandes-client',
-        component: CommandesClientComponent,
-        children: [
-          { path: 'liste-commandes',
-        component: ListeCommandesComponent}
-        ]
-      },
-      { path: 'adresses-livraison',
-        component: AdressesLivraisonComponent,
-        children: [
-          { path: 'liste-adresses', component: ListeAdressesComponent},
-          { path: 'formulaire-ajout', component: FormulaireAjoutComponent}
-        ]
-    }
-    ]
+  { path: 'produit/liste-produits/commande-produits/:id', component: CommandeProduitsComponent},
 
-    }
+  { path: 'client', component: ClientComponent},
+
+  //chemin vers le formulaire d'ajout d'adresse
+  { path: 'client/formulaire-ajout', component: FormulaireAjoutComponent},
+
+  //chemin pour afficher les adresses du client
+  { path: 'client/liste-adresses', component: ListeAdressesComponent},
+  //chemin pour afficher les commandes du client
+  { path: 'client/commandes-client', component: CommandesClientComponent}
 ]
 
 @NgModule({

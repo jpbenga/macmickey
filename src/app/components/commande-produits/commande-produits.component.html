@@ -1,13 +1,14 @@
-<div>
+<div class="col-md-6 mt-5 mx-auto bg-light p-2">
   <div>
     <ngb-alert *ngIf="orderValidation" [dismissible]="true" type="success">Quantité ajouté avec succès</ngb-alert>
   </div>
   <h3>Commande du produit: <span class="text-primary" *ngIf="product$ | async as product">{{ product.name }}</span></h3>
-
+  <br>
   <p>Veuillez choisir la quantité souhaité: </p>
   <div class="form">
     <label for="quantity">Quantité :</label>
-    <app-counter [quantity]="orderQuantity" value="1"></app-counter>
-    <button (click)="orderValidationMessage()" class="btn btn-primary">Valider</button>
+    <app-counter [(quantity)]="orderQuantity"></app-counter>
+    <br>
+    <button (click)="addToCart()" class="btn btn-primary">Valider</button>
   </div>
 </div>
